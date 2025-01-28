@@ -10,3 +10,10 @@ Accepts:
 - code
 - image
 - link
+
+## test_textnode.py
+Contains all test cases related to textnodes and conversions from Markdown to textnodes
+
+## htmlnode.py
+
+## test_htmlnode.py
