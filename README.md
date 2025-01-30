@@ -17,3 +17,4 @@ Contains all test cases related to textnodes and conversions from Markdown to te
 ## htmlnode.py
 
 ## test_htmlnode.py
+Contains all test cases related to htmlnodes, leafnodes, and parentnodes
