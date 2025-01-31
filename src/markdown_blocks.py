@@ -19,9 +19,25 @@ def block_to_block_type(block):
     lines = block.split("\n")
 
     if "# " in block[:7]:
-    #if block.startswith(("# ", "## ", "### ", "#### ", "##### ", "###### ")):
         return block_type_heading
     if block[:3] == "```" and block [-3:] == "```":
         return block_type_code
-    
-    return "paragraph"
+    if block.startswith(">"):
+        for line in lines:
+            if not line.startswith(">"):
+                return block_type_paragraph
+        return block_type_quote
+    if block.startswith(("* ", "- ")):
+        for line in lines:
+            if not line.startswith(("* ", "- ")):
+                return block_type_paragraph
+        return block_type_unordered_list
+    if block.startswith("1. "):
+        i = 1
+        for line in lines:
+            if not line.startswith(f"{i}. "):
+                return block_type_paragraph
+            i += 1
+        return block_type_ordered_list
+            
+    return block_type_paragraph

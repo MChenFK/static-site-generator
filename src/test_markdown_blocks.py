@@ -88,14 +88,14 @@ This is the same paragraph on a new line
         self.assertEqual(block_to_block_type(block), block_type_paragraph)
         block = "# heading"
         self.assertEqual(block_to_block_type(block), block_type_heading)
-        # block = "```\ncode\n```"
-        # self.assertEqual(block_to_block_type(block), block_type_code)
-        # block = "> quote\n> more quote"
-        # self.assertEqual(block_to_block_type(block), block_type_quote)
-        # block = "* list\n* items"
-        # self.assertEqual(block_to_block_type(block), block_type_unordered_list)
-        # block = "1. list\n2. items"
-        # self.assertEqual(block_to_block_type(block), block_type_ordered_list)
+        block = "```\ncode\n```"
+        self.assertEqual(block_to_block_type(block), block_type_code)
+        block = "> quote\n> more quote"
+        self.assertEqual(block_to_block_type(block), block_type_quote)
+        block = "* list\n* items"
+        self.assertEqual(block_to_block_type(block), block_type_unordered_list)
+        block = "1. list\n2. items"
+        self.assertEqual(block_to_block_type(block), block_type_ordered_list)
         
     def test_multiple_heading_layers(self):
         block = "# heading"
