@@ -1,3 +1,7 @@
+from htmlnode import ParentNode
+from inline_markdown import text_to_textnodes
+from textnode import text_node_to_html_node
+
 block_type_paragraph = "paragraph"
 block_type_heading = "heading"
 block_type_code = "code"
@@ -41,3 +45,40 @@ def block_to_block_type(block):
         return block_type_ordered_list
             
     return block_type_paragraph
+
+def markdown_to_html_node(markdown):
+    blocks = markdown_to_blocks(markdown)
+    children = []
+    for block in blocks:
+        html_node = block_to_html_node(block)
+        children.append(html_node)
+    return ParentNode("div", children, None)
+
+def block_to_html_node(block):
+    block_type = block_to_block_type(block)
+
+def text_to_children(text):
+    text_nodes = text_to_textnodes(text)
+    children = []
+    for text_node in text_nodes:
+        html_node = text_node_to_html_node(text_node)
+        children.append(html_node)
+    return children
+
+def paragraph_to_html_node(block):
+    pass
+
+def heading_to_html_node(block):
+    pass
+
+def code_to_html_node(block):
+    pass
+
+def quote_to_html_node(block):
+    pass
+
+def unordered_list_to_html_node(block):
+    pass
+
+def ordered_list_to_html_node(block):
+    pass
