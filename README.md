@@ -1,7 +1,11 @@
 # static-site-generator
 The static site generator generates a static site similar to Jekyll, Hugo, or Gatsby using python
 
-## textnode.py
+## static
+Contains static website to generate local public directory
+
+## src
+### textnode.py
 Generates textnodes in Markdown given raw text and a text type
 Accepts:
 - text
@@ -11,10 +15,11 @@ Accepts:
 - image
 - link
 
-## test_textnode.py
+### test_textnode.py
 Contains all test cases related to textnodes and conversions from Markdown to textnodes
 
-## htmlnode.py
+### htmlnode.py
+Contains classes htmlnode, leafnode, and parentnode
 
-## test_htmlnode.py
+### test_htmlnode.py
 Contains all test cases related to htmlnodes, leafnodes, and parentnodes
