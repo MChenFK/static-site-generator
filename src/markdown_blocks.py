@@ -56,6 +56,20 @@ def markdown_to_html_node(markdown):
 
 def block_to_html_node(block):
     block_type = block_to_block_type(block)
+    
+    handlers = {
+        block_type_paragraph: paragraph_to_html_node,
+        block_type_heading: heading_to_html_node,
+        block_type_code: code_to_html_node,
+        block_type_quote: quote_to_html_node,
+        block_type_unordered_list: unordered_list_to_html_node,
+        block_type_ordered_list: ordered_list_to_html_node,
+    }
+    
+    if block_type in handlers:
+        return handlers[block_type](block)
+    
+    raise ValueError("Invalid block type")
 
 def text_to_children(text):
     text_nodes = text_to_textnodes(text)
@@ -66,7 +80,10 @@ def text_to_children(text):
     return children
 
 def paragraph_to_html_node(block):
-    pass
+    lines = block.split("\n")
+    paragraph = " ".join(lines)
+    children = text_to_children(paragraph)
+    return ParentNode("p", children)
 
 def heading_to_html_node(block):
     pass
