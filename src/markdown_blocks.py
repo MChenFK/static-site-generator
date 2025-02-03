@@ -86,16 +86,51 @@ def paragraph_to_html_node(block):
     return ParentNode("p", children)
 
 def heading_to_html_node(block):
-    pass
+    count = 0
+    for char in block:
+        if char == "#":
+            count += 1
+        else:
+            break
+    if count + 1 >= len(block):
+        raise ValueError(f"Invalid heading level: {count}. Must be 6 or less.")
+    text = block[count + 1:]
+    children = text_to_children(text)
+    return ParentNode(f"h{count}", children)
 
 def code_to_html_node(block):
-    pass
+    if not block[:3] == "```" or not block [-3:] == "```":
+        raise ValueError("Invalid code block. Must start and end with ```")
+    text = block[4:-3]
+    children = text_to_children(text)
+    code = ParentNode("code", children)
+    return ParentNode("pre", [code])
 
 def quote_to_html_node(block):
-    pass
+    lines = block.split("\n")
+    new_lines = []
+    for line in lines:
+        if not line.startswith(">"):
+            raise ValueError("Invalid quote block. Must start with >.")
+        new_lines.append(line.lstrip(">").strip())
+    content = " ".join(new_lines)
+    children = text_to_children(content)
+    return ParentNode("blockquote", children)
 
 def unordered_list_to_html_node(block):
-    pass
+    items = block.split("\n")
+    html_items = []
+    for item in items:
+        text = item[2:]
+        children = text_to_children(text)
+        html_items.append(ParentNode("li", children))
+    return ParentNode("ul", html_items)
 
 def ordered_list_to_html_node(block):
-    pass
+    items = block.split("\n")
+    html_items = []
+    for item in items:
+        text = item[3:]
+        children = text_to_children(text)
+        html_items.append(ParentNode("li", children))
+    return ParentNode("ol", html_items)
