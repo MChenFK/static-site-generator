@@ -23,3 +23,11 @@ Contains classes htmlnode, leafnode, and parentnode
 
 ### test_htmlnode.py
 Contains all test cases related to htmlnodes, leafnodes, and parentnodes
+
+### inline_markdown.py
+
+### test_inline_markdown.py
+
+### markdown_blocks.py
+
+### test_markdown_blocks.py
