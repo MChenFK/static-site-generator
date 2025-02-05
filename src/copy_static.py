@@ -10,10 +10,10 @@ def copy_directory(source, destination):
     os.mkdir(destination)
     
     for filename in os.listdir(source):
-        from_path = os.path.join(source, filename)
-        dest_path = os.path.join(destination, filename)
-        print(f" * {from_path} -> {dest_path}")
-        if os.path.isfile(from_path):
-            shutil.copy(from_path, dest_path)
+        source_path = os.path.join(source, filename)
+        destination_path = os.path.join(destination, filename)
+        print(f" * {source_path} -> {destination_path}")
+        if os.path.isfile(source_path):
+            shutil.copy(source_path, destination_path)
         else:
-            copy_directory(from_path, dest_path)
+            copy_directory(source_path, destination_path)
