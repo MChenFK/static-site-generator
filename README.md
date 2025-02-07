@@ -25,9 +25,13 @@ Contains classes htmlnode, leafnode, and parentnode
 Contains all test cases related to htmlnodes, leafnodes, and parentnodes
 
 ### inline_markdown.py
+Splits markdown into corresponding textnodes for text types
 
 ### test_inline_markdown.py
+Test cases for inline_markdown.py
 
 ### markdown_blocks.py
+Converts markdown to corresponding blocks
 
 ### test_markdown_blocks.py
+Test cases for markdown_blocks.py
