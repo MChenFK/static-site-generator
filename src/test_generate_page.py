@@ -1,8 +1,8 @@
 import unittest
 
-from extract_title import *
+from generate_page import *
 
-class TestExtractTitle(unittest.TestCase):
+class TestGeneratePage(unittest.TestCase):
     def test_extract_title(self):
         result = extract_title("# Hello")
         self.assertEqual(result,  "Hello")
