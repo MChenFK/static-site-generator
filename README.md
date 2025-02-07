@@ -1,5 +1,6 @@
 # static-site-generator
 The static site generator generates a static site similar to Jekyll, Hugo, or Gatsby using python
+The generator converts markdown files from placed in the content folder to html files viewable on the host and port localhost:8888
 
 ## static
 Contains static website to generate local public directory
