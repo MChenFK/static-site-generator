@@ -1,10 +1,14 @@
 # static-site-generator
 - The static site generator generates a static site similar to Jekyll, Hugo, or Gatsby using python
 - The generator converts markdown files from placed in the content folder to html files viewable on the host and port localhost:8888
-Steps to use:
+
+## Steps to use:
 1. Place markdown files / directories for markdown files in content folder
 2. Run ./main.sh
 3. Open http://localhost:8888
+
+## content
+Contains markdown files and directories of markdown files to be converted to html in local public folder
 
 ## static
 Contains static website to generate local public directory
